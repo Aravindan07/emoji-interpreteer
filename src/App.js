@@ -5,47 +5,44 @@ import { flagEmojis } from "./constants";
 let emojiList = Object.keys(flagEmojis);
 
 export default function App() {
-  // const [value, setValue] = useState("");
+  const [value, setValue] = useState("");
   const [emojiValue, setEmojiValue] = useState("");
-  const emojiSearchHandler = (e) => {
-    let userInput = e.target.value;
-    let meaning = flagEmojis[userInput];
+  const emojiSearchHandler = (event) => {
+    let userInput = event.target.value;
+    setValue(userInput.trim());
+    let meaning = flagEmojis[userInput.trim()];
+    if (userInput.length <= 0 && emojiValue.length >= 0) {
+      return setEmojiValue("Your output will be shown here");
+    }
+    if (meaning === undefined) {
+      return setEmojiValue("We don't have this in our database");
+    }
     setEmojiValue(meaning);
   };
   const emojiClickHandler = (item) => {
+    console.log(item);
     let meaning = flagEmojis[item];
     setEmojiValue(meaning);
   };
   return (
     <div className="wrapper">
-      <h1>Transportation & Places Interpreter</h1>
+      <h1>Transport & most used emoji's Interpretor</h1>
       <div className="input-wrap">
         <input
           type="text"
-          name=""
-          id=""
+          value={value}
           onChange={emojiSearchHandler}
-          placeholder="Enter an emoji"
+          placeholder="Enter a transport emoji to get the meaning of it"
         />
         <div className="input-wrap output">
-          {emojiValue === "" || emojiValue === undefined
-            ? "Your output will be showed here"
-            : emojiValue}
+          {emojiValue === "" ? "Your output will be shown here" : emojiValue}
         </div>
         OR
         <p> Click on any emoji from below </p>
         <div className="show-emojis">
           {emojiList.map((item, index) => {
             return (
-              <span
-                style={{
-                  cursor: "pointer",
-                  fontSize: "2rem",
-                  padding: "0.5rem",
-                }}
-                key={index}
-                onClick={() => emojiClickHandler(item)}
-              >
+              <span key={index} onClick={() => emojiClickHandler(item)}>
                 {item}
               </span>
             );

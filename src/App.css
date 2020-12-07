@@ -9,10 +9,11 @@ body {
 
 .wrapper {
   color: #dee3e0;
+  padding: 2rem 0rem;
 }
 
 .wrapper h1 {
-  font-style: italic;
+  margin: 0;
   text-align: center;
 }
 
@@ -34,6 +35,10 @@ body {
   font-size: 1.3rem;
   border-radius: 5px;
   color: #dee3e0;
+}
+
+.input-wrap input:focus {
+  border: 1px solid #496ddb;
 }
 
 .input-wrap input::placeholder {
@@ -59,4 +64,15 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin: 2rem 0rem;
+}
+
+.show-emojis span {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.show-emojis span:hover {
+  background-color: #dee3e0;
 }
