@@ -20,7 +20,6 @@ export default function App() {
     setEmojiValue(meaning);
   };
   const emojiClickHandler = (item) => {
-    console.log(item);
     let meaning = flagEmojis[item];
     setEmojiValue(meaning);
   };
@@ -32,7 +31,7 @@ export default function App() {
           type="text"
           value={value}
           onChange={emojiSearchHandler}
-          placeholder="Enter a transport emoji to get the meaning of it"
+          placeholder="Enter a emoji"
         />
         <div className="input-wrap output">
           {emojiValue === "" ? "Your output will be shown here" : emojiValue}

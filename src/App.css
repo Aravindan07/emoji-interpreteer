@@ -74,5 +74,17 @@ body {
 }
 
 .show-emojis span:hover {
-  background-color: #9ca3af;
+  background-color: #4b5563;
+}
+
+@media only screen and (max-width: 769px) {
+  .input-wrap {
+    width: 80%;
+  }
+  .input-wrap input {
+    width: 80%;
+  }
+  .show-emojis {
+    width: 100%;
+  }
 }
