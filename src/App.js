@@ -25,7 +25,7 @@ export default function App() {
   };
   return (
     <div className="wrapper">
-      <h1>Transport & most used emoji's Interpretor</h1>
+      <h1>Transportation and most used emojis</h1>
       <div className="input-wrap">
         <input
           type="text"
